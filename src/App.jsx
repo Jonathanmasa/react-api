@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 // importo postsFile
