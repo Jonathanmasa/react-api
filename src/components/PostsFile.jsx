@@ -1,44 +1,46 @@
 import { useState } from "react";
+// import axios
+import axios from "axios";
 
 
 // array di posts
-const posts = [
-  {
-    id: 1,
-    titolo: "Introduzione a JavaScript",
-    autore: "Mario Rossi",
-    contenuto: "JavaScript è un linguaggio di programmazione versatile e potente...",
-    categoria: "Programmazione"
-  },
-  {
-    id: 2,
-    titolo: "Come migliorare la SEO del tuo sito web",
-    autore: "Luca Bianchi",
-    contenuto: "La SEO è fondamentale per migliorare la visibilità di un sito web...",
-    categoria: "Marketing"
-  },
-  {
-    id: 3,
-    titolo: "I benefici dello sport sulla salute mentale",
-    autore: "Giulia Verdi",
-    contenuto: "Lo sport non è solo utile per il fisico, ma anche per la mente...",
-    categoria: "Salute"
-  },
-  {
-    id: 4,
-    titolo: "Guida completa a React.js",
-    autore: "Andrea Neri",
-    contenuto: "React.js è una libreria JavaScript per costruire interfacce utente...",
-    categoria: "Programmazione"
-  },
-  {
-    id: 5,
-    titolo: "10 ricette veloci per una cena perfetta",
-    autore: "Carla Fabbri",
-    contenuto: "Se hai poco tempo e vuoi preparare una cena deliziosa...",
-    categoria: "Cucina"
-  }
-];
+// const posts = [
+//   {
+//     id: 1,
+//     titolo: "Introduzione a JavaScript",
+//     autore: "Mario Rossi",
+//     contenuto: "JavaScript è un linguaggio di programmazione versatile e potente...",
+//     categoria: "Programmazione"
+//   },
+//   {
+//     id: 2,
+//     titolo: "Come migliorare la SEO del tuo sito web",
+//     autore: "Luca Bianchi",
+//     contenuto: "La SEO è fondamentale per migliorare la visibilità di un sito web...",
+//     categoria: "Marketing"
+//   },
+//   {
+//     id: 3,
+//     titolo: "I benefici dello sport sulla salute mentale",
+//     autore: "Giulia Verdi",
+//     contenuto: "Lo sport non è solo utile per il fisico, ma anche per la mente...",
+//     categoria: "Salute"
+//   },
+//   {
+//     id: 4,
+//     titolo: "Guida completa a React.js",
+//     autore: "Andrea Neri",
+//     contenuto: "React.js è una libreria JavaScript per costruire interfacce utente...",
+//     categoria: "Programmazione"
+//   },
+//   {
+//     id: 5,
+//     titolo: "10 ricette veloci per una cena perfetta",
+//     autore: "Carla Fabbri",
+//     contenuto: "Se hai poco tempo e vuoi preparare una cena deliziosa...",
+//     categoria: "Cucina"
+//   }
+// ];
 
 const initialFormData = {
     titolo: "",
