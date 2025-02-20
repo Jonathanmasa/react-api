@@ -51,8 +51,18 @@ const initialFormData = {
 
 const PostsFile = () => {
 
-    const [post, setPost] = useState(posts);
+    const [post, setPost] = useState([]);
     const [formData, setFormData] = useState(initialFormData);
+
+    // Fetching dei dati
+    function fetchPosts() {
+      axios.get("http://localhost:3000/posts")
+        .then((res) => 
+          setPost(res.data)
+        )
+    }
+    // Solo al primo rendering
+    useEffect(fetchPosts, []);
 
     // gestisco info nei campi form
     function handleFormData(e) {
