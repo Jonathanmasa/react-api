@@ -36,20 +36,29 @@ const PostsFile = () => {
             [e.target.name]: value,
         }));
     }
-
+    
+    // gestione invio form
     function handleSubmit(e) {
         e.preventDefault();
+        // chiamata API e invio dati nuovo post
+        axios.post("http://localhost:3000/posts", formData)
+            .then( res => {
+                // console.log(res.data)
+                setPost((post) => [...post, res.data])
+                
+            })
+            .catch(err => console.log(err))
       
-        setPost(prevPosts => {
-          const newPost = {
-            id: prevPosts.length === 0 ? 1 : prevPosts[prevPosts.length - 1].id + 1,
-            ...formData
-          };
+    //     setPost(prevPosts => {
+    //       const newPost = {
+    //         id: prevPosts.length === 0 ? 1 : prevPosts[prevPosts.length - 1].id + 1,
+    //         ...formData
+    //       };
       
-          const updatedPosts = [...prevPosts, newPost];
-          console.log("Nuovi post:", updatedPosts); 
-          return updatedPosts;
-        });
+    //       const updatedPosts = [...prevPosts, newPost];
+    //       console.log("Nuovi post:", updatedPosts); 
+    //       return updatedPosts;
+    //     });
       
         setFormData(initialFormData);
       }
