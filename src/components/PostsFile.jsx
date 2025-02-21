@@ -96,34 +96,34 @@ const PostsFile = () => {
             <form action="#">
                 <input
                  type="text" 
-                 name="titolo"
+                 name="title"
                  onChange={handleFormData}
-                 value={formData.titolo}
-                 placeholder="Titolo Articolo"
+                 value={formData.title}
+                 placeholder="Nome prodotto"
                 />
 
                 <input
                  type="text" 
-                 name="autore"
+                 name="content"
                  onChange={handleFormData}
-                 value={formData.autore}
-                 placeholder="Nome Autore"
+                 value={formData.content}
+                 placeholder="contenuto"
                 />
 
                 <input
-                 type="text" 
-                 name="contenuto"
+                 type="src" 
+                 name="image"
                  onChange={handleFormData}
-                 value={formData.contenuto}
-                 placeholder="Contenuto"
+                 value={formData.image}
+                 placeholder="immagine"
                 />
 
                 <input
                  type="text" 
                  name="categoria"
                  onChange={handleFormData}
-                 value={formData.categoria}
-                 placeholder="Categoria"
+                 value={formData.tags}
+                 placeholder="tags"
                 />
 
                 <button onClick={handleSubmit}>Aggiungi</button>
@@ -139,9 +139,9 @@ const PostsFile = () => {
                         <div className="card-body">
                             {/* <h5 className="card-title">{articolo.autore}</h5> */}
                             <p className="card-text">{articolo.content}</p>
-                            <p className="card-text">{articolo.image}</p>
+                            <p className="card-text"><img src={articolo.image} alt={articolo.content} /></p>
                             <p className="card-text">{articolo.tags}</p>
-                            <div>{articolo.categoria}</div>
+                
                         </div>
                     </div>
 
