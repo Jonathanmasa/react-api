@@ -63,6 +63,20 @@ const PostsFile = () => {
         setFormData(initialFormData);
       }
 
+    //   cancellazione pizza
+    function deleteArticolo(idArticolo) {
+        const updateArticoli = post.filter((articolo) => {
+            return articolo.id !== idArticolo;
+        })
+        // chiamata cancellazione
+        axios.delete(`http://localhost:3000/posts/${idArticolo}`)
+            .then((res) => 
+                setPost(updateArticoli)
+            )
+            .catch(err => console.log(err))
+            
+    }
+
     return (
         <>
             <h1>BLOG</h1>
@@ -115,7 +129,7 @@ const PostsFile = () => {
                             <p className="card-text">{articolo.content}</p>
                             <p className="card-text"><img src={articolo.image} alt={articolo.content} /></p>
                             <p className="card-text">{articolo.tags.join(",")}</p>
-                            <button>Cancella</button>
+                            <button onClick={() => deleteArticolo(articolo.id)}>Cancella</button>
                         </div>
                     </div>
 
