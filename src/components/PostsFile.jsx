@@ -4,10 +4,10 @@ import axios from "axios";
 
 
 const initialFormData = {
-    titolo: "",
-    autore: "",
-    contenuto: "",
-    categoria: ""
+    title: "",
+    content: "",
+    image: "",
+    tags: [],
 };
 
 const PostsFile = () => {
@@ -27,9 +27,13 @@ const PostsFile = () => {
 
     // gestisco info nei campi form
     function handleFormData(e) {
+        // gestione value per tipo di input
+        const value = e.target.name === "tags" ? e.target.value.split(",") : e.target.value;
+
+        // setto tramite useState l'oggetto con le info prese dai campi del form
         setFormData((currentFormData) => ({
             ...currentFormData,
-            [e.target.name]: e.target.value,
+            [e.target.name]: value,
         }));
     }
 
@@ -43,7 +47,7 @@ const PostsFile = () => {
           };
       
           const updatedPosts = [...prevPosts, newPost];
-          console.log("Nuovi post:", updatedPosts); // ✅ Controllo per vedere se il nuovo post viene aggiunto
+          console.log("Nuovi post:", updatedPosts); 
           return updatedPosts;
         });
       
@@ -64,7 +68,7 @@ const PostsFile = () => {
                 />
 
                 <input
-                 type="text" 
+                type="text"
                  name="content"
                  onChange={handleFormData}
                  value={formData.content}
@@ -81,9 +85,9 @@ const PostsFile = () => {
 
                 <input
                  type="text" 
-                 name="categoria"
+                 name="tags"
                  onChange={handleFormData}
-                 value={formData.tags}
+                 value={formData.tags.join(",")}
                  placeholder="tags"
                 />
 
@@ -101,7 +105,7 @@ const PostsFile = () => {
                             {/* <h5 className="card-title">{articolo.autore}</h5> */}
                             <p className="card-text">{articolo.content}</p>
                             <p className="card-text"><img src={articolo.image} alt={articolo.content} /></p>
-                            <p className="card-text">{articolo.tags}</p>
+                            <p className="card-text">{articolo.tags.join(",")}</p>
                             <button>Cancella</button>
                         </div>
                     </div>
